@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DentalEase</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagini/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <button id="titlu-btn">
+          <a href="ai">
+            <img src="imagini/titlu.png" />
+          </a>
+        </button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="search-btn">
+              <a href="#">
+                <img
+                  src="imagini/locatie.png"
+                  alt="Buton căutare cabinete stomatologice"
+                />
+              </a>
+            </button>
+          </li>
+          <li><a href="ai">Acasă</a></li>
+          <li><a href="programare">Programare</a></li>
+          <li><a href="servicii">Servicii</a></li>
+          <li><a href="tarife">Tarife</a></li>
+          <% if (isLoggedIn) { %>
+          <li><a href="istoric-programari">Istoric programări</a></li>
+          <% } %>
+          <li>
+            <% if (isLoggedIn) { %>
+            <a id="logout-btn" href="/logout" class="btn btn-primary"
+              >LOG OUT</a
+            >
+            <% } else { %>
+            <a id="login-btn" href="/login" class="btn btn-primary">LOGIN</a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>Prenume</th>
+                <th>Nume</th>
+                <th>Telefon</th>
+                <th>Tratament</th>
+                <th>Data și ora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% programari.forEach(programare => { %>
+              <tr>
+                <td><%= programare.prenume %></td>
+                <td><%= programare.nume %></td>
+                <td><%= programare.telefon %></td>
+                <td>
+                  <%=
+                  helperFunctionsEjs.convertToCamelCase(programare.tratament) %>
+                </td>
+                <td><%= helperFunctionsEjs.formatDate(programare.data) %></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <% if (isAdmin) { %>
+          <!-- Formularul pentru mesaje -->
+          <form method="POST" action="/mesaje">
+            <div>
+              <label for="email">Adresa de e-mail a utilizatorului:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="mesaj">Mesaj:</label>
+              <textarea id="mesaj" name="mesaj" required></textarea>
+            </div>
+            <div>
+              <button type="submit">Trimite mesajul</button>
+            </div>
+          </form>
+          <% } %>
+
+          <ul>
+            <% for (let i = 0; i < mesaje.length; i++) { %>
+            <h4>Mesaje primite:</h4>
+            <li>
+              <%- mesaje[i].replace(/\n/g, "<br />") %>
+              <!-- Folosește <%- %> pentru a interpreta mesajul ca HTML -->
+            </li>
+            <% } %>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div id="contact-bar" class="fixed-bottom bg-light py-2 fixed-height">
+        <div class="container">
+          <button id="calendar-btn">
+            <a href="https://calendar.google.com/"
+              ><img src="imagini/calendar.png" alt="Buton Google Calendar"
+            /></a>
+          </button>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <a href="tel:0123456789" class="btn btn-primary mr-3"
+                >Sună acum</a
+              >
+              <a href="https://wa.me/0123456789" class="btn btn-success mr-3"
+                >WhatsApp</a
+              >
+              <a href="programare" class="btn btn-secondary">Programează-te</a>
+            </div>
+            <div class="col-auto">
+              <button id="close-btn" class="btn btn-link">Închide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="logout.js"></script>
+    <script src="pagina.js"></script>
+  </body>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>

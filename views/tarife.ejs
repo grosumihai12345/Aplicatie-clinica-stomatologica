@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programare la dentist</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagini/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <button id="titlu-btn">
+          <a href="ai">
+            <img src="imagini/titlu.png" />
+          </a>
+        </button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="search-btn">
+              <a href="#">
+                <img
+                  src="imagini/locatie.png"
+                  alt="Buton căutare cabinete stomatologice"
+                />
+              </a>
+            </button>
+          </li>
+          <li><a href="ai">Acasă</a></li>
+          <li><a href="programare">Programare</a></li>
+          <li><a href="servicii">Servicii</a></li>
+          <li><a href="tarife">Tarife</a></li>
+          <% if (isLoggedIn) { %>
+          <li><a href="istoric-programari">Istoric programări</a></li>
+          <% } %>
+          <li>
+            <% if (isLoggedIn) { %>
+            <a id="logout-btn" href="/logout" class="btn btn-primary"
+              >LOG OUT</a
+            >
+            <% } else { %>
+            <a id="login-btn" href="/login" class="btn btn-primary">LOGIN</a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>Serviciu</th>
+                <th class="price">Preț</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>Consultație</td>
+              <td class="price">50 lei</td>
+            </tr>
+            <tr>
+              <td>Consultatie specialist</td>
+              <td class="price">150 lei</td>
+            </tr>
+            <tr>
+              <td>Radiografie retrodentoalveolară</td>
+              <td class="price">70 lei</td>
+            </tr>
+            <tr>
+              <td>Ortopantomografie</td>
+              <td class="price">120 lei</td>
+            </tr>
+            <tr>
+              <td>Detartraj + periaj</td>
+              <td class="price">120 lei</td>
+            </tr>
+            <tr>
+              <td>Airflow</td>
+              <td class="price">100 lei</td>
+            </tr>
+            <tr>
+              <td>Detartraj + periaj + airflow</td>
+              <td class="price">200 lei</td>
+            </tr>
+            <tr>
+              <td>Sigilare</td>
+              <td class="price">60 lei</td>
+            </tr>
+            <tr>
+              <td>Fluorizare</td>
+              <td class="price">60 lei</td>
+            </tr>
+            <tr>
+              <td>Gutieră bruxism</td>
+              <td class="price">300 lei</td>
+            </tr>
+            <tr>
+              <td>Obturație-carie simplă/medie/avansată</td>
+              <td class="price">200-600 lei</td>
+            </tr>
+            <tr>
+              <td>Tratament endodontic</td>
+              <td class="price">300 - 600 lei</td>
+            </tr>
+            <tr>
+              <td>Tratament endodontic + microscop</td>
+              <td class="price">600 - 1000 lei</td>
+            </tr>
+            <tr>
+              <td>Montare aparat dentar fix metalic/arcadă</td>
+              <td class="price">1500 - 2500 lei</td>
+            </tr>
+            <tr>
+              <td>Montare aparat dentar fix de safir/arcadă</td>
+              <td class="price">2500 - 3500 lei</td>
+            </tr>
+            <tr>
+              <td>Aparat dentar mobil</td>
+              <td class="price">800 - 1200 lei</td>
+            </tr>
+            <tr>
+              <td>Activare aparat dentar fix metalic/arcadă</td>
+              <td class="price">150 - 300 lei</td>
+            </tr>
+            <tr>
+              <td>Activare aparat dentar fix de safir/arcadă</td>
+              <td class="price">250 - 400 lei</td>
+            </tr>
+            <tr>
+              <td>Fir de contenție</td>
+              <td class="price">200 - 400 lei</td>
+            </tr>
+            <tr>
+              <td>Extracție</td>
+              <td class="price">100 - 300 lei</td>
+            </tr>
+            <tr>
+              <td>Extracție molar de minte</td>
+              <td class="price">400 - 800 lei</td>
+            </tr>
+            <tr>
+              <td>Extracție rest radicular</td>
+              <td class="price">200 - 400 lei</td>
+            </tr>
+            <tr>
+              <td>Implant dentar</td>
+              <td class="price">2500 - 4000 lei</td>
+            </tr>
+            <tr>
+              <td>Coroană provizorie</td>
+              <td class="price">200 - 400 lei</td>
+            </tr>
+            <tr>
+              <td>Coroană ceramică</td>
+              <td class="price">800 - 1500 lei</td>
+            </tr>
+            <tr>
+              <td>Coroană zirconiu</td>
+              <td class="price">1500 - 2500 lei</td>
+            </tr>
+            <tr>
+              <td>Coroană metalică</td>
+              <td class="price">600 - 1000 lei</td>
+            </tr>
+            <tr>
+              <td>Fațete dentare</td>
+              <td class="price">800 - 1500 lei</td>
+            </tr>
+            <tr>
+              <td>Proteză dentară mobilă</td>
+              <td class="price">800 - 1500 lei</td>
+            </tr>
+            <tr>
+              <td>Proteză dentară fixă</td>
+              <td class="price">1500 - 3000 lei</td>
+            </tr>
+          </table>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div id="contact-bar" class="fixed-bottom bg-light py-2 fixed-height">
+        <div class="container">
+          <button id="calendar-btn">
+            <a href="https://calendar.google.com/"
+              ><img src="imagini/calendar.png" alt="Buton Google Calendar"
+            /></a>
+          </button>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <a href="tel:0123456789" class="btn btn-primary mr-3"
+                >Sună acum</a
+              >
+              <a href="https://wa.me/0123456789" class="btn btn-success mr-3"
+                >WhatsApp</a
+              >
+              <a href="programare" class="btn btn-secondary">Programează-te</a>
+            </div>
+            <div class="col-auto">
+              <button id="close-btn" class="btn btn-link">Închide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="logout.js"></script>
+    <script src="pagina.js"></script>
+  </body>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>

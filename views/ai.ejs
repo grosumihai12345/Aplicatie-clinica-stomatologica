@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DentalEase</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagini/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <button id="titlu-btn">
+          <a href="ai">
+            <img src="imagini/titlu.png" />
+          </a>
+        </button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="search-btn">
+              <a href="#">
+                <img
+                  src="imagini/locatie.png"
+                  alt="Buton căutare cabinete stomatologice"
+                />
+              </a>
+            </button>
+          </li>
+          <li><a href="ai">Acasă</a></li>
+          <li><a href="programare">Programare</a></li>
+          <li><a href="servicii">Servicii</a></li>
+          <li><a href="tarife">Tarife</a></li>
+          <% if (isLoggedIn) { %>
+          <li><a href="istoric-programari">Istoric programări</a></li>
+          <% } %>
+          <li>
+            <% if (isLoggedIn) { %>
+            <a id="logout-btn" href="/logout" class="btn btn-primary"
+              >LOG OUT</a
+            >
+            <% } else { %>
+            <a id="login-btn" href="/login" class="btn btn-primary">LOGIN</a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <section id="home">
+          <h2>Acasă</h2>
+          <p>
+            &emsp; Bine ați venit la Clinica noastră de Medicină Dentară, suntem
+            dedicați să oferim cel mai bun tratament și servicii stomatologice
+            posibile pentru pacienții noștri. Suntem mândri să fim furnizori de
+            servicii stomatologice de calitate superioară și am creat o
+            experiență confortabilă și prietenoasă pentru pacienții noștri.
+          </p>
+          <p>
+            &emsp; De asemenea, suntem mândri să avem o echipă de medici
+            stomatologi de top, care sunt experti în domeniul lor și se
+            angajează să ofere tratamentul cel mai bun și personalizat pentru
+            pacienții noștri. Aceștia sunt dedicați să asigure confortul și
+            satisfacția pacienților noștri, fie că este vorba despre o întâlnire
+            de rutină sau o procedură mai complexă.
+          </p>
+          <p>
+            &emsp; Oferim pacienților noștri posibilitatea de a efectua o
+            programare online pentru a simplifica procesul de programare și a
+            economisi timp. Suntem mereu la dispoziția pacienților noștri pentru
+            a răspunde la orice întrebări sau nelămuriri ar putea avea și pentru
+            a le oferi suportul necesar.
+          </p>
+          <div class="image-row">
+            <img src="imagini/imagine_1.jpg" alt="Imagine 1" />
+            <img src="imagini/imagine_2.jpg" alt="Imagine 2" />
+            <img src="imagini/imagine_3.jpg" alt="Imagine 3" />
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div id="contact-bar" class="fixed-bottom bg-light py-2 fixed-height">
+        <div class="container">
+          <button id="calendar-btn">
+            <a href="https://calendar.google.com/"
+              ><img src="imagini/calendar.png" alt="Buton Google Calendar"
+            /></a>
+          </button>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <a href="tel:0123456789" class="btn btn-primary mr-3"
+                >Sună acum</a
+              >
+              <a href="https://wa.me/0123456789" class="btn btn-success mr-3"
+                >WhatsApp</a
+              >
+              <a href="programare" class="btn btn-secondary">Programează-te</a>
+            </div>
+            <div class="col-auto">
+              <button id="close-btn" class="btn btn-link">Închide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="logout.js"></script>
+    <script src="pagina.js"></script>
+  </body>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>

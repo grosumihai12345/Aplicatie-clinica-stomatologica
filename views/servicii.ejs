@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programare la dentist</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagini/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <button id="titlu-btn">
+          <a href="ai">
+            <img src="imagini/titlu.png" />
+          </a>
+        </button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="search-btn">
+              <a href="#">
+                <img
+                  src="imagini/locatie.png"
+                  alt="Buton căutare cabinete stomatologice"
+                />
+              </a>
+            </button>
+          </li>
+          <li><a href="ai">Acasă</a></li>
+          <li><a href="programare">Programare</a></li>
+          <li><a href="servicii">Servicii</a></li>
+          <li><a href="tarife">Tarife</a></li>
+          <% if (isLoggedIn) { %>
+          <li><a href="istoric-programari">Istoric programări</a></li>
+          <% } %>
+          <li>
+            <% if (isLoggedIn) { %>
+            <a id="logout-btn" href="/logout" class="btn btn-primary"
+              >LOG OUT</a
+            >
+            <% } else { %>
+            <a id="login-btn" href="/login" class="btn btn-primary">LOGIN</a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <section id="servicii" class="row">
+          <div class="col-4">Consultație</div>
+          <div class="col-8">
+            <p>Consultația inițială are mai multe obiective:</p>
+            <ul>
+              <li>Realizarea fișei pacientului</li>
+              <li>Cunoașterea istoricului medical al pacientului</li>
+              <li>Examinarea clinică</li>
+              <li>Radiografii dentoalveolare</li>
+              <li>Stabilirea diagnosticului</li>
+              <li>
+                Întocmirea planului de tratament cu expunerea opțiunilor
+                existente și realizarea unui cost estimativ
+              </li>
+              <li>
+                Amprentarea arcadelor dentare în vederea realizării modelelor de
+                studiu
+              </li>
+              <li>
+                Înțelegerea nevoilor și preferințelor pacientului pe termen
+                scurt sau lung
+              </li>
+            </ul>
+            <p>
+              În cazurile mai complexe, care necesită o analiză amănunțită,
+              întreaga echipă (medic stomatolog, medic specialist, tehnician )
+              alături de pacient vor discuta variantele de tratament și costul
+              estimativ.
+            </p>
+          </div>
+        </section>
+        <section id="profilaxie" class="row">
+          <div class="col-4">Profilaxie</div>
+          <div class="col-8">
+            <p>
+              Profilaxia reprezintă ansamblul metodelor prin intermediul cărora
+              reușim să prevenim problemele ce pot apare ulterior în ceea ce
+              privește sănătatea dentară. Întreținerea unor dinți sănătoși ține
+              de fiecare dintre noi, pornind de la modul în care aplicăm
+              proceduri simple de igienă orală: periajul corect și folosirea
+              aței dentare, vizita periodică la medicul dentist pentru detartraj
+              și periajul profesional.
+            </p>
+            <p>
+              Una dintre cele mai importante preocupări ale echipei noastre
+              vizează promovarea măsurilor de igienă orală în rândul
+              pacienților.
+            </p>
+            <p>
+              Îndrumări privind igiena orală, tehnici de periaj corect,
+              utilizarea firului de mătase interdentar, folosirea periilor
+              speciale interdentare, igiena lucrărilor protetice fixe si
+              mobilizabile cuprind următoarele:
+            </p>
+            <ul>
+              <li>Detartraj cu ultrasunete și periaj profesional</li>
+              <li>Prophijet</li>
+              <li>Profilaxia afecțiunilor parodontale</li>
+              <li>Controlul plăcii bacteriene</li>
+              <li>Sigilarea șanțurilor și fosetelor</li>
+            </ul>
+          </div>
+        </section>
+        <section id="cariologie" class="row">
+          <div class="col-4">Cariologie</div>
+          <div class="col-8">
+            <p>
+              Cariologia este o ramură a stomatologiei care se ocupă cu tratarea
+              cariilor dentare. Cariile sunt leziuni care apar atunci când placa
+              bacteriană descompune zaharurile în acizi, distrugând țesuturile
+              dure ale dintelui. Cariile dentare pot fi prevenite prin igiena
+              orală riguroasă și controale periodice la medicul stomatolog.
+            </p>
+            <p>
+              Tratamentul cariilor dentare este recomandat să se realizeze cât
+              mai curând posibil, pentru a evita complicații precum inflamația
+              pulpei dentare și infecțiile. De obicei, se încearcă conservarea
+              nervului dintelui prin metode minim invazive. Dacă acest lucru nu
+              este posibil, se va îndepărta nervul și se va efectua tratamentul
+              complet al cariei dentare. Tratamentul cariilor și durerilor
+              dentare se efectuează sub anestezie locală, cu materiale și
+              tehnologie de ultimă generație.
+            </p>
+          </div>
+        </section>
+        <section id="tratamentEndodontic" class="row">
+          <div class="col-4">Tratament endodontic</div>
+          <div class="col-8">
+            <p>
+              Tratamentele endodontice, presupun tratarea (sub anestezie) a
+              canalului radicular, dupa extirparea țesutului pulpar,
+              finalizându-se prin obturarea canalului pentru evitarea
+              infecțiilor bacteriene.
+            </p>
+            <p>
+              Pentru obținerea celor mai bune rezultate, medicii din clinica
+              noastră dispun de cea mai modernă aparatură pentru tratamente de
+              canal.
+            </p>
+          </div>
+        </section>
+        <section id="ortodontie" class="row">
+          <div class="col-4">Ortodonție</div>
+          <div class="col-8">
+            <p>
+              Problemele stomatologice nu se reflectă doar la nivel estetic.
+              Dinții nealiniați, de exemplu, afectează atât zâmbetul, cât și
+              starea generală de sănătate a pacientului. Suprapunerea incorectă
+              a maxilarului și mandibulei determină o masticație defectuoasă
+              urmată de boli digestive grave.
+            </p>
+            <p>
+              Ortodonția se ocupă cu diagnosticul si tratamentul anomaliilor
+              dento-maxilare, având în vedere consecințele acestora asupra
+              funcționării și morfologiei cranio-faciale adresându-se atât
+              copiilor cât și adulților. Pentru aceasta, ortodontul nostru vă
+              stă la dispoziţie cu toate informaţiile necesare.
+            </p>
+            <p>
+              Copiilor dumneavoastră li se vor recomanda fie un aparat
+              ortodontic mobil care ajută oasele maxilare să se dezvolte în
+              perioada dentiţiei mixte, fie un aparat ortodontic fix în perioada
+              dentiţiei definitive.
+            </p>
+            <p>În cabinetul nostru efectuăm următoarele manopere:</p>
+            <ul>
+              <li>montare aparat dentar fix metalic/safir</li>
+              <li>activare aparat dentar fix metalic/safir</li>
+              <li>
+                montare aparat dentar mobil și personalizarea lui în funcție de
+                preferințele pacientului
+              </li>
+              <li>fir de contenție la finalul tratamentului ortodontic</li>
+            </ul>
+          </div>
+        </section>
+        <section id="stomatologiePediatrică" class="row">
+          <div class="col-4">Stomatologie pediatrică</div>
+          <div class="col-8">
+            <p>
+              Stomatologia pediatrică cuprinde totalitatea măsurilor
+              profilactice și curative utilizate în asistența stomatologică a
+              copilului. Pacientul copil, aflat în perioada de creștere, își
+              schimbă dinții temporari cu cei definitivi.
+            </p>
+            <p>
+              Considerăm important tratamentul dinților de lapte pentru ca noii
+              dinți sănătoși să erupă într-un mediu curat și lipsit de bacterii.
+            </p>
+            <p>
+              Este esențial ca de la început să le câștigăm încrederea copiilor
+              și să-i facem să se simtă confortabil.
+            </p>
+            <p>
+              Tratamentul puțin traumatic, atmosfera plăcută și echipa de
+              specialiști prietenoasă fac ca cei mici să vină cu plăcere la
+              clinica noastră.
+            </p>
+          </div>
+        </section>
+        <section id="chirurgieDentara" class="row">
+          <div class="col-4">Chirurgie dentară</div>
+          <div class="col-8">
+            <p>
+              Echipa noastră de chirurgi rezolvă cazuri complexe de chirurgie
+              dentară precum:
+            </p>
+            <ul>
+              <li>
+                Extracția dentară – reprezintă îndepărtarea dintele de pe
+                arcadă, atunci când acesta nu mai poate fi tratat.
+              </li>
+              <li>
+                Rezecția apicală – reprezintă îndepărtarea apexului dentar
+                (vârful dintelui) împreună cu țesutul infectat atunci când el nu
+                poate fi tratat endodontic (tratament de canal), păstrând astfel
+                dintele pe arcadă.
+              </li>
+              <li>
+                Odondectomia – constă în îndepărtarea dinților incluși în os,
+                care din diverse motive (loc insuficient pe arcadă, poziție
+                nefavorabilă a dintelui) nu mai pot erupe în condiții normale pe
+                arcadă. Neîndepărtarea acestui dinte poate duce la complicații
+                ale dinților prezenți pe arcadă:
+              </li>
+              <li>Modificări ale poziției dinților</li>
+              <li>Resorbții ale rădăcinilor dinților vecini</li>
+              <li>Complicații infecțioase ale dintelui ce vrea sa erupă</li>
+            </ul>
+            <p>
+              In cazul tratamentelor de chirurgie dentară aparatura performantă
+              contribuie la asigurarea unui rezultat rapid și benefic pentru
+              pacient.
+            </p>
+          </div>
+        </section>
+        <section id="proteticaDentara" class="row">
+          <div class="col-4">Protetică dentară</div>
+          <div class="col-8">
+            <p>
+              Protetica dentară reprezintă ramura medicinii dentare care se
+              ocupă cu restaurarea și menținerea sănătății dentare a pacienților
+              prin restaurarea dinților lipsă.
+            </p>
+            <p>Tipuri de lucrări protetice oferite:</p>
+            <ul>
+              <li>
+                Protezele dentare fixe (coroane dentare):
+                <ul>
+                  <li>ceramică (porțelan) pe support de zirconiu</li>
+                  <li>ceramică presată</li>
+                  <li>metaloceramică</li>
+                  <li>compozita</li>
+                </ul>
+              </li>
+              <li>
+                Protezele dentare mobilizabile:
+                <ul>
+                  <li>proteze scheletat</li>
+                  <li>proteze elestice</li>
+                  <li>proteze pe magneți</li>
+                  <li>proteze pe implanturi</li>
+                </ul>
+              </li>
+              <li>
+                Protezele mobile acrilice, care stau pe câmpul protetic datorită
+                fenomenului de succiune, adeziune, tonicitate musculară si
+                retentivitate anatomică.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section id="parodontologie" class="row">
+          <div class="col-4">Parodontologie</div>
+          <div class="col-8">
+            <p>
+              Dacă vi s-a spus că suferiți de parodontoză, nu sunteți singurul!
+              Aproximativ 75% dintre pacienți prezintă o formă a bolii
+              parodontale. Aceasta este o boală de natură bacteriană ce
+              afectează gingiile și țesuturile de suport ale dintelui (sistemul
+              de ligamente ce susține dintele în os).
+            </p>
+            <p>
+              Boala parodontală se poate prezenta sub mai multe forme. Ea începe
+              odată cu depunerea plăcii bacteriene, o peliculă opacă, ce se
+              intărește, în cele din urmă formând tartrul. Depozitele de tartru
+              păstrează bacterii ce infectează gingiile. În fazele incipiente,
+              aceasta se numește gingivita, caracterizată prin gingii roșii,
+              inflamate și sângerează atunci când vă spălați pe dinți.
+              Netratată, gingivita progresează în parodontita, o formă mult mai
+              gravă a bolii, în care se formează pungile parodontale, separând
+              dinții de gingii și os.
+            </p>
+            <p>Semnele ce pot indica o formă a parodontozei sunt:</p>
+            <ul>
+              <li>Respirație urât mirositoare;</li>
+              <li>Sângerare gingivală spontană sau la periajul dinților;</li>
+              <li>Gingii umflate și roșii;</li>
+              <li>Sensibilitate dentară;</li>
+              <li>Mobilitate dentară;</li>
+              <li>Retracții gingivale cu expunerea rădăcinilor dinților.</li>
+            </ul>
+            <p>
+              Oricare dintre aceste semne pot semnala o problemă serioasă și
+              trebuie verificată de către medicul specialist parodontolog.
+            </p>
+          </div>
+        </section>
+        <section id="implantologia" class="row">
+          <div class="col-4">Implantologie</div>
+          <div class="col-8">
+            <p>
+              Are rolul de a înlocui dinții lipsă sau grav deteriorați, în
+              condiții de siguranță.
+            </p>
+            <p>
+              Un implant dentar are aceeași funcție ca rădăcina unui dinte
+              natural, oferind sprijin solid pentru un nou dinte.
+            </p>
+            <p>
+              Implanturile dentare sunt concepute pentru a mima structura
+              rădăcinii dinților naturali.
+            </p>
+            <p>Avantajele implantului dentar sunt:</p>
+            <ul>
+              <li>Confort</li>
+              <li>Durabilitate</li>
+              <li>Estetică</li>
+              <li>Salvarea dinților vecini</li>
+            </ul>
+            <p>
+              Această procedură se face chirurgical prin plasarea implantului în
+              os. Necesită o perioadă de așteptare de câteva luni pentru
+              integrarea implantului în organism, după care urmează restaurarea
+              prin coroane, punți sau proteze mobilizabile.
+            </p>
+          </div>
+        </section>
+        <section id="albireaDintilor" class="row">
+          <div class="col-4">Albirea dinților</div>
+          <div class="col-8">
+            <p>
+              Procedeul constă în realizarea în prealabil a unui consult și a
+              unei ședințe de igienizare pentru curățarea și pregătirea
+              dinților.
+            </p>
+            <p>
+              Albirea presupune aplicarea unui gel special în gutiere si
+              aplicarea lor în cavitatea orală.
+            </p>
+            <p>
+              Albirea nu este recomandată copiilor sub 13 ani, femeilor
+              însărcinate sau care alăptează precum și pacienților cu multiple
+              carii și obturații.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div id="contact-bar" class="fixed-bottom bg-light py-2 fixed-height">
+        <div class="container">
+          <button id="calendar-btn">
+            <a href="https://calendar.google.com/"
+              ><img src="imagini/calendar.png" alt="Buton Google Calendar"
+            /></a>
+          </button>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <a href="tel:0123456789" class="btn btn-primary mr-3"
+                >Sună acum</a
+              >
+              <a href="https://wa.me/0123456789" class="btn btn-success mr-3"
+                >WhatsApp</a
+              >
+              <a href="programare" class="btn btn-secondary">Programează-te</a>
+            </div>
+            <div class="col-auto">
+              <button id="close-btn" class="btn btn-link">Închide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="logout.js"></script>
+    <script src="pagina.js"></script>
+  </body>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>

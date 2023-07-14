@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DentalEase - Înregistrare</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagini/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <button id="titlu-btn">
+          <a href="ai">
+            <img src="imagini/titlu.png" />
+          </a>
+        </button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="search-btn">
+              <a href="#">
+                <img
+                  src="imagini/locatie.png"
+                  alt="Buton căutare cabinete stomatologice"
+                />
+              </a>
+            </button>
+          </li>
+          <li><a href="ai">Acasă</a></li>
+          <li><a href="programare">Programare</a></li>
+          <li><a href="servicii">Servicii</a></li>
+          <li><a href="tarife">Tarife</a></li>
+          <% if (isLoggedIn) { %>
+          <li><a href="istoric-programari">Istoric programări</a></li>
+          <% } %>
+          <li>
+            <% if (isLoggedIn) { %>
+            <a id="logout-btn" href="/logout" class="btn btn-primary"
+              >LOG OUT</a
+            >
+            <% } else { %>
+            <a id="login-btn" href="/login" class="btn btn-primary">LOGIN</a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card mt-5">
+              <div class="card-header">
+                <h3 class="text-center">Înregistrare cont nou</h3>
+              </div>
+              <div class="card-body">
+                <form action="/register" method="POST">
+                  <div class="form-group">
+                    <label for="username">Nume utilizator</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      placeholder="Introduceți numele de utilizator"
+                      required
+                      name="username"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Adresă de email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="Introduceți adresa de email"
+                      required
+                      name="email"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Parolă</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="Introduceți parola"
+                      required
+                      name="password"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">
+                      REGISTER
+                    </button>
+                  </div>
+                </form>
+                <div class="text-center mt-3">
+                  <p>Already have an account? <a href="login">Login</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div id="contact-bar" class="fixed-bottom bg-light py-2 fixed-height">
+        <div class="container">
+          <button id="calendar-btn">
+            <a href="https://calendar.google.com/"
+              ><img src="imagini/calendar.png" alt="Buton Google Calendar"
+            /></a>
+          </button>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <a href="tel:0123456789" class="btn btn-primary mr-3"
+                >Sună acum</a
+              >
+              <a href="https://wa.me/0123456789" class="btn btn-success mr-3"
+                >WhatsApp</a
+              >
+              <a href="programare" class="btn btn-secondary">Programează-te</a>
+            </div>
+            <div class="col-auto">
+              <button id="close-btn" class="btn btn-link">Închide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="logout.js"></script>
+    <script src="pagina.js"></script>
+  </body>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>

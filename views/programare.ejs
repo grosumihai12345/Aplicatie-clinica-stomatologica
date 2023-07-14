@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programare la dentist</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagini/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <button id="titlu-btn">
+          <a href="ai">
+            <img src="imagini/titlu.png" />
+          </a>
+        </button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="search-btn">
+              <a href="#">
+                <img
+                  src="imagini/locatie.png"
+                  alt="Buton căutare cabinete stomatologice"
+                />
+              </a>
+            </button>
+          </li>
+          <li><a href="ai">Acasă</a></li>
+          <li><a href="programare">Programare</a></li>
+          <li><a href="servicii">Servicii</a></li>
+          <li><a href="tarife">Tarife</a></li>
+          <% if (isLoggedIn) { %>
+          <li><a href="istoric-programari">Istoric programări</a></li>
+          <% } %>
+          <li>
+            <% if (isLoggedIn) { %>
+            <a id="logout-btn" href="/logout" class="btn btn-primary"
+              >LOG OUT</a
+            >
+            <% } else { %>
+            <a id="login-btn" href="/login" class="btn btn-primary">LOGIN</a>
+            <% } %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form id="regForm" action="/programare" method="POST">
+        <h1>Programare</h1>
+        <!-- One "tab" for each step in the form: -->
+
+        <div class="tab">
+          <p>Contact Info:</p>
+          <p></p>
+          <p>
+            <input
+              type="text"
+              id="prenume"
+              name="prenume"
+              oninput="this.className = ''"
+              placeholder="Prenume"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              id="nume"
+              name="nume"
+              oninput="this.className = ''"
+              placeholder="Nume"
+              required
+            />
+          </p>
+          <p>
+            <input
+              type="tel"
+              id="telefon"
+              name="telefon"
+              oninput="this.className = ''"
+              placeholder="Numar telefon"
+              required
+            />
+          </p>
+        </div>
+        <div class="tab">
+          <p>Alegeti tratamentul:</p>
+          <p>
+            <select
+              id="tratament"
+              name="tratament"
+              oninput="this.className = ''"
+              onchange="showDescription()"
+            >
+              <optgroup label="Stomatologie generala">
+                <option
+                  value="consultatie"
+                  data-descriere="Descrierea consultatiei"
+                >
+                  Consultatie
+                </option>
+                <option
+                  value="consultatie_specialist"
+                  data-descriere="Descrierea consultatiei specialist"
+                >
+                  Consultatie specialist
+                </option>
+                <option value="radiografie_retrodentoalveolara">
+                  Radiografie retrodentoalveolara
+                </option>
+                <option value="ortopantomografie">Ortopantomografie</option>
+                <option value="detartraj_periaj">Detartraj + periaj</option>
+                <option value="airflow">Airflow</option>
+                <option value="detartraj_periaj_airflow">
+                  Detartraj + periaj + Airflow
+                </option>
+                <option value="sigilare">Sigilare</option>
+                <option value="fluorizare">Fluorizare</option>
+                <option value="gutiera_bruxism">Gutiera bruxism</option>
+                <option value="obturatie_carie_simpla">
+                  Obturatie - carie simpla
+                </option>
+                <option value="obturatie_carie_medie">
+                  Obturatie - carie medie
+                </option>
+                <option value="obturatie_carie_avansata">
+                  Obturatie - carie avansata
+                </option>
+                <option value="tratament_endodontic">
+                  Tratament endodontic
+                </option>
+                <option value="tratament_endodontic_microscop">
+                  Tratament endodontic + microscop
+                </option>
+              </optgroup>
+              <optgroup label="Ortodontie">
+                <option value="montare_aparat_fix_metalic">
+                  Montare aparat dentar fix metalic/arcada
+                </option>
+                <option value="montare_aparat_fix_safir">
+                  Montare aparat dentar fix de safir/arcada
+                </option>
+                <option value="aparat_dentar_mobil">Aparat dentar mobil</option>
+                <option value="activare_aparat_fix_metalic">
+                  Activare aparat dentar fix metalic/arcada
+                </option>
+                <option value="activare_aparat_fix_safir">
+                  Activare aparat dentar fix de safir/arcada
+                </option>
+                <option value="fir_contentie">Fir de contentie</option>
+              </optgroup>
+              <optgroup label="Chirurgie orala">
+                <option value="extractie">Extractie</option>
+                <option value="extractie_molar_minte">
+                  Extractie molar de minte
+                </option>
+                <option value="extractie_rest_radicular">
+                  Extractie rest radicular
+                </option>
+                <option value="implant_dentar">Implant dentar</option>
+              </optgroup>
+              <optgroup label="Coroane și proteze">
+                <option value="coroana-provizorie">Coroană provizorie</option>
+                <option value="coroana-ceramica">Coroană ceramică</option>
+                <option value="coroana-zirconiu">Coroană din zirconiu</option>
+                <option value="coroana-metalica">Coroană metalică</option>
+                <option value="fatete-dentare">Fațete dentare</option>
+                <option value="proteza-dentara-mobila">
+                  Proteză dentară mobilă
+                </option>
+                <option value="proteza-dentara-fixa">
+                  Proteză dentară fixă
+                </option>
+              </optgroup>
+              <optgroup label="Alte tratamente">
+                <option value="sigilari-fluorizari-placa-bacteriana">
+                  Sigilări, fluorizări, evidentiere placa bacteriana
+                </option>
+                <option value="obturatie">Obturatie</option>
+                <option value="extractie-dinte-temporar">
+                  Extractie dinte temporar
+                </option>
+                <option value="coroana-pedodontica">Coroana pedodontică</option>
+                <option value="albire-dentara">Albire dentară</option>
+                <option value="gutiera-albire">Gutieră albire</option>
+                <option value="bijuterii-dentare">Bijuterii dentare</option>
+              </optgroup>
+            </select>
+          </p>
+          <div id="descriere"></div>
+          <!-- elementul pentru afișarea descrierii -->
+        </div>
+        <div class="tab">
+          <div id="tratamentSelectat"></div>
+          <p>
+            <input
+              type="date"
+              id="date-input"
+              name="data"
+              oninput="this.className = ''"
+            />
+          </p>
+          <p>
+            <input
+              type="time"
+              id="time-input"
+              name="ora"
+              value="09:00"
+              step="3600"
+              min="09:00"
+              max="18:00"
+              oninput="this.className = ''"
+            />
+          </p>
+        </div>
+        <div style="overflow: auto">
+          <div style="float: right">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">
+              Previous
+            </button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">
+              Next
+            </button>
+          </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align: center; margin-top: 40px">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <div id="contact-bar" class="fixed-bottom bg-light py-2 fixed-height">
+        <div class="container">
+          <button id="calendar-btn">
+            <a href="https://calendar.google.com/"
+              ><img src="imagini/calendar.png" alt="Buton Google Calendar"
+            /></a>
+          </button>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <a href="tel:0123456789" class="btn btn-primary mr-3"
+                >Sună acum</a
+              >
+              <a href="https://wa.me/0123456789" class="btn btn-success mr-3"
+                >WhatsApp</a
+              >
+              <a href="programare" class="btn btn-secondary">Programează-te</a>
+            </div>
+            <div class="col-auto">
+              <button id="close-btn" class="btn btn-link">Închide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="logout.js"></script>
+  <script src="validareFormulare.js"></script>
+  <script src="optiuni.js"></script>
+  <script src="calendar.js"></script>
+</html>
